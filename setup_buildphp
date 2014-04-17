@@ -21,4 +21,3 @@ fi
 ./configure --disable-all --enable-cli --prefix=$MYDIR/php-files/build/$PHPTAG $ZTSARG
 
 make && make install
-

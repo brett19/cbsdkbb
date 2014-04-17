@@ -24,4 +24,3 @@ echo "Building ZTS"
 if [ ! -e php-files/build/$PHPVER-zts-$ARCH ]; then
   ./setup_buildphp $PHPVER zts $ARCH
 fi
-
