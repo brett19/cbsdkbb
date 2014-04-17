@@ -4,4 +4,4 @@ MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 NJSVER=$1
 NJSTAG=$NJSVER-$ARCH
-NJSDIR=$MYDIR/../njs-files/$NJSTAG
+NJSDIR=$MYDIR/../njs-files/$NJSTAG/bin
