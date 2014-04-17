@@ -25,9 +25,11 @@ wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src/php-src
 echo "downloading nodejs files..."
 if [ "$ARCH" == 'x86' ]; then
   wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x86.tar.gz" -O src/node-0.10.26-x86.tar.gz
+  wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-linux-x86.tar.gz" -O src/node-0.11.9-x86.tar.gz
 fi
 if [ "$ARCH" == 'x64' ]; then
   wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz" -O src/node-0.10.26-x64.tar.gz
+  wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-linux-x64.tar.gz" -O src/node-0.11.9-x64.tar.gz
 fi
 
 
@@ -44,6 +46,10 @@ echo "installing nodejs files..."
 if [ ! -e njs-files/0.10.26-$ARCH ]; then
   tar -xzvf src/node-0.10.26-$ARCH.tar.gz -C tmp
   mv tmp/node-v0.10.26-linux-$ARCH njs-files/0.10.26-$ARCH
+fi
+if [ ! -e njs-files/0.11.9-$ARCH ]; then
+  tar -xzvf src/node-0.11.9-$ARCH.tar.gz -C tmp
+  mv tmp/node-v0.11.9-linux-$ARCH njs-files/0.11.9-$ARCH
 fi
 
 
