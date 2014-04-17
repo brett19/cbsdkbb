@@ -1,0 +1,3 @@
+SET NJSVER=%1
+SET NJSTAG=%NJSVER%-%ARCH%
+SET NJSDIR=%~dp0..\njs-files\%NJSTAG%\
