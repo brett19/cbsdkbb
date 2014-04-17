@@ -57,7 +57,7 @@ and couchnode on Windows, CentOS and Ubuntu.
 
     Ubuntu:
     sudo apt-get install build-essential
-    sudo apt-get install git
+    sudo apt-get install git autoconf
     sudo apt-get install libevent-dev
     ```
 
