@@ -26,6 +26,8 @@ and couchnode on Windows, CentOS and Ubuntu.
   ```batch
   mkdir C:\cbsdkbb
   git clone https://github.com/brett19/cbsdkbb.git C:\cbsdkbb
+  cd C:\cbsdkbb
+  setup.bat
   ```
 
 1. Connect Jenkins
@@ -56,7 +58,7 @@ and couchnode on Windows, CentOS and Ubuntu.
     ```
 
   1. Java 1.7 (Ubuntu Only)
-     ```bash
+    ```bash
     sudo apt-get install python-software-properties
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update
@@ -68,6 +70,8 @@ and couchnode on Windows, CentOS and Ubuntu.
   sudo mkdir /cbsdkbb
   sudo chown buildbot cbsdkbb
   git clone https://github.com/brett19/cbsdkbb.git /cbsdkbb
+  cd /cbsdkbb
+  ./setup
   ```
 
 ### SmartOS
