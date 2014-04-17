@@ -55,6 +55,6 @@ fi
 echo "installing php files..."
 ./setup_installphp 5.5.11 $ARCH
 ./setup_installphp 5.4.27 $ARCH
-#./setup_installphp 5.3.28 $ARCH
+./setup_installphp 5.3.28 $ARCH
 
 rm -rf tmp
