@@ -23,6 +23,7 @@ and couchnode on Windows, CentOS and Ubuntu.
     1. Make sure `java` is in your PATH
   1. Install Python 2.7
     1. Make sure `python` is in your PATH
+  1. Install CMake
 
 1. Setup SDK Folder
   ```batch
@@ -52,12 +53,12 @@ and couchnode on Windows, CentOS and Ubuntu.
     ```bash
     CentOS:
     sudo yum groupinstall 'Development Tools'
-    sudo yum install git
+    sudo yum install git cmake
     sudo yum install libevent-devel
 
     Ubuntu:
     sudo apt-get install build-essential
-    sudo apt-get install git autoconf
+    sudo apt-get install git autoconf cmake
     sudo apt-get install libevent-dev
     ```
 
