@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 PHPVER=$1
 ARCH=$2
