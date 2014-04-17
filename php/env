@@ -8,4 +8,3 @@ PHPTAG=$PHPVER-$PHPTS-$ARCH
 PHPDIR=$MYDIR/../php-files/build/$PHPTAG
 PHPSDKDIR=$MYDIR/../php-files/sdk
 PHPSRCDIR=$MYDIR/../php-files/src/$PHPTAG
-

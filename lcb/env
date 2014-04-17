@@ -1,0 +1,7 @@
+#/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+LCBVER=$1
+LCBTAG=$LCBVER-$ARCH
+LCBDIR=$MYDIR/../lcb-files/$LCBTAG
