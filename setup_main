@@ -17,7 +17,7 @@ wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0.tar.gz" -O 
 
 
 echo "downloading php files..."
-wget -nc "http://php.net/get/php-5.3.28.tar.bz2/from/this/mirror" -O src/php-src-5.3.28.tar.bz2
+#wget -nc "http://php.net/get/php-5.3.28.tar.bz2/from/this/mirror" -O src/php-src-5.3.28.tar.bz2
 wget -nc "http://php.net/get/php-5.4.27.tar.bz2/from/this/mirror" -O src/php-src-5.4.27.tar.bz2
 wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src/php-src-5.5.11.tar.bz2
 
@@ -43,6 +43,6 @@ fi
 echo "installing php files..."
 ./setup_installphp 5.5.11 $ARCH
 ./setup_installphp 5.4.27 $ARCH
-./setup_installphp 5.3.28 $ARCH
+#./setup_installphp 5.3.28 $ARCH
 
 rm -rf tmp
