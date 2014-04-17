@@ -1,6 +1,9 @@
 SET BBROOT=%~dp0..\
 SET MSVSVER=%1
 
+FOR /F "tokens=*" %%a IN ('git rev-parse HEAD') DO SET BBREV=%%a
+echo Build bot at revision %BBREV%.
+
 ECHO Identifying architecture
 IF "%PROGRAMFILES(X86)%"=="" (SET ARCH=x86) ELSE (SET ARCH=x64)
 SET PROGFILE=%PROGRAMFILES(X86)%

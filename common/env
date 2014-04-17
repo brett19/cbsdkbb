@@ -1,5 +1,8 @@
 #!/bin/bash
 
+BBREV=`git rev-parse HEAD`
+echo "Build bot at revision $BBREV."
+
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
   ARCH='x64'
