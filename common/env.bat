@@ -6,6 +6,8 @@ IF "%PROGRAMFILES(X86)%"=="" (SET ARCH=x86) ELSE (SET ARCH=x64)
 SET PROGFILE=%PROGRAMFILES(X86)%
 IF "%ARCH%"=="x86" SET PROGFILE=%PROGRAMFILES%
 
+SET ARCH=%2
+
 SET MSVSARCH=x86
 IF "%ARCH%"=="x64" SET MSVSARCH=x86_amd64
 
@@ -20,16 +22,14 @@ GOTO vcBad
 :vc9
   ECHO Using Visual Studio 2008
   SET MSVSYEAR=2008
-  CALL "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\SetEnv.cmd" /xp /x64 /release
-  REM CALL "%PROGFILE%\Microsoft Visual Studio 9.0\VC\vcvarsall.bat" %MSVSARCH%
+  CALL "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\SetEnv.cmd" /xp /%ARCH% /release
   @ECHO ON
   GOTO End
 
 :vc10
   ECHO Using Visual Studio 2010
   SET MSVSYEAR=2010
-  CALL "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64 /release
-  REM CALL "%PROGFILE%\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" %MSVSARCH%
+  CALL "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /win7 /%ARCH% /release
   @ECHO ON
   GOTO End
 
