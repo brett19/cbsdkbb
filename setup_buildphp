@@ -1,0 +1,24 @@
+#/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PHPVER=$1
+PHPTS=$2
+ARCH=$3
+
+echo "Building PHP $1 $2 $3"
+
+PHPTAG=$PHPVER-$PHPTS-$ARCH
+
+. common/env
+
+cd php-files/src/$PHPTAG
+
+ZTSARG=''
+if [ "$PHPTS"=='zts' ]; then
+  ZTSARG='--enable-maintainer-zts'
+fi
+
+./configure --disable-all --enable-cli --prefix=$MYDIR/php-files/build/$PHPTAG $ZTSARG
+
+make && make install
+

@@ -1,0 +1,27 @@
+#/bin/bash
+
+PHPVER=$1
+ARCH=$2
+
+echo "Installing PHP $PHPVER $ARCH"
+
+echo "Installing NTS"
+if [ ! -e php-files/src/$PHPVER-nts-$ARCH ]; then
+  tar -xjvf src/php-src-$PHPVER.tar.bz2 -C tmp
+  mv tmp/php-$PHPVER php-files/src/$PHPVER-nts-$ARCH
+fi
+echo "Building NTS"
+if [ ! -e php-files/build/$PHPVER-nts-$ARCH ]; then
+  ./setup_buildphp $PHPVER nts $ARCH
+fi
+
+echo "Installing ZTS"
+if [ ! -e php-files/src/$PHPVER-zts-$ARCH ]; then
+  tar -xjvf src/php-src-$PHPVER.tar.bz2 -C tmp
+  mv tmp/php-$PHPVER php-files/src/$PHPVER-zts-$ARCH
+fi
+echo "Building ZTS"
+if [ ! -e php-files/build/$PHPVER-zts-$ARCH ]; then
+  ./setup_buildphp $PHPVER zts $ARCH
+fi
+

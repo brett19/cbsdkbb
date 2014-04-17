@@ -1,0 +1,11 @@
+#/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+PHPVER=$1
+PHPTS=$2
+PHPTAG=$PHPVER-$PHPTS-$ARCH
+PHPDIR=$MYDIR/../php-files/build/$PHPTAG
+PHPSDKDIR=$MYDIR/../php-files/sdk
+PHPSRCDIR=$MYDIR/../php-files/src/$PHPTAG
+

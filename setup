@@ -1,0 +1,52 @@
+#/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. common/env
+
+mkdir tmp
+mkdir src
+mkdir lcb-files
+mkdir php-files
+mkdir php-files/build
+mkdir php-files/deps
+mkdir php-files/src
+mkdir njs-files
+
+echo "downloading libcouchbase files..."
+wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0.tar.gz" -O src/lcb-2.3.0-src.tar.gz
+
+
+echo "downloading php files..."
+wget -nc "http://php.net/get/php-5.3.28.tar.bz2/from/this/mirror" -O src/php-src-5.3.28.tar.bz2
+wget -nc "http://php.net/get/php-5.4.27.tar.bz2/from/this/mirror" -O src/php-src-5.4.27.tar.bz2
+wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src/php-src-5.5.11.tar.bz2
+
+
+echo "downloading nodejs files..."
+if [ "$ARCH" == 'x86' ]; then
+  wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x86.tar.gz" -O src/node-0.10.26-x86.tar.gz
+fi
+if [ "$ARCH" == 'x64' ]; then
+  wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz" -O src/node-0.10.26-x64.tar.gz
+fi
+
+
+
+
+echo "installing lcb files..."
+if [ ! -e lcb-files/2.3.0-$ARCH ]; then
+  tar -xzvf src/lcb-2.3.0-src.tar.gz -C tmp
+  mv tmp/libcouchbase-2.3.0 lcb-files/2.3.0-$ARCH
+fi
+
+
+echo "installing php files..."
+./setup_installphp 5.5.11 $ARCH
+./setup_installphp 5.4.27 $ARCH
+./setup_installphp 5.3.28 $ARCH
+
+
+
+
+
+
