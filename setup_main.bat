@@ -45,7 +45,7 @@ REM if "%ARCH%"=="x64" (
 REM   tools\wget -nc "http://windows.php.net/downloads/php-sdk/deps-5.5-vc11-x64.7z" -O src\php-deps-5.5-vc11-x64.7z
 REM )
 if "%ARCH%"=="x86" (
-  tools\wget -nc "http://php.net/get/php-5.3.28.tar.bz2/from/this/mirror" -O src\php-src-5.3.28.tar.bz2
+  tools\wget -nc "http://php.net/get/php-5.3.27.tar.bz2/from/this/mirror" -O src\php-src-5.3.27.tar.bz2
   tools\wget -nc "http://php.net/get/php-5.4.27.tar.bz2/from/this/mirror" -O src\php-src-5.4.27.tar.bz2
 )
 tools\wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src\php-src-5.5.11.tar.bz2
@@ -121,7 +121,7 @@ IF NOT EXIST php-files\sdk (
 if "%ARCH%"=="x86" (
   CALL setup_installphp.bat 5.5 5.5.11 vc11 x86
   CALL setup_installphp.bat 5.4 5.4.27 vc9 x86
-  CALL setup_installphp.bat 5.3 5.3.28 vc9 x86
+  CALL setup_installphp.bat 5.3 5.3.27 vc9 x86
 )
 if "%ARCH%"=="x64" (
   CALL setup_installphp.bat 5.5 5.5.11 vc11 x64
@@ -131,22 +131,3 @@ if "%ARCH%"=="x64" (
 rmdir /q /s tmp
 
 ENDLOCAL
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
