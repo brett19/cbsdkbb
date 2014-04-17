@@ -28,6 +28,10 @@ and couchnode on Windows, CentOS and Ubuntu.
   git clone https://github.com/brett19/cbsdkbb.git C:\cbsdkbb
   ```
 
+1. Connect Jenkins
+  1. Install as Service
+  1. Update service to execute as user rather than LOCAL SERVICE.
+
 ### CentOS, Ubuntu
 
 1. Install VMWare Tools
