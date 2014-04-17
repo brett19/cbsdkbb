@@ -53,10 +53,12 @@ and couchnode on Windows, CentOS and Ubuntu.
     CentOS:
     sudo yum groupinstall 'Development Tools'
     sudo yum install git
+    sudo yum install libevent-devel
 
     Ubuntu:
     sudo apt-get install build-essential
     sudo apt-get install git
+    sudo apt-get install libevent-dev
     ```
 
   1. Java 1.7 (Ubuntu Only)

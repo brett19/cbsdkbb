@@ -6,6 +6,8 @@ MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mkdir tmp
 mkdir src
 mkdir lcb-files
+mkdir lcb-files/build
+mkdir lcb-files/src
 mkdir php-files
 mkdir php-files/build
 mkdir php-files/deps
@@ -36,10 +38,7 @@ fi
 
 
 echo "installing lcb files..."
-if [ ! -e lcb-files/2.3.0-$ARCH ]; then
-  tar -xzvf src/lcb-2.3.0-src.tar.gz -C tmp
-  mv tmp/libcouchbase-2.3.0 lcb-files/2.3.0-$ARCH
-fi
+./setup_installlcb 2.3.0 $ARCH
 
 
 echo "installing nodejs files..."

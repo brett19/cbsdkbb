@@ -8,4 +8,3 @@ else
 fi
 
 echo "Using architecture $ARCH (${MACHINE_TYPE})"
-

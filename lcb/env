@@ -4,4 +4,7 @@ MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 LCBVER=$1
 LCBTAG=$LCBVER-$ARCH
-LCBDIR=$MYDIR/../lcb-files/$LCBTAG
+LCBSRCDIR=$MYDIR/../lcb-files/src/$LCBTAG
+LCBDIR=$MYDIR/../lcb-files/build/$LCBTAG
+
+export CFLAGS="$CFLAGS -I$LCBDIR/include -L$LCBDIR/lib"

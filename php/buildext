@@ -1,0 +1,13 @@
+#/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+EXTPATH=$1
+EXTNAME=$2
+
+cd $EXTPATH
+
+$PHPDIR/phpize
+
+./configure --with-php-config=$PHPDIR/php-config --enable-couchbase
+
+make
