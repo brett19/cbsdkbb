@@ -40,6 +40,13 @@ if [ ! -e lcb-files/2.3.0-$ARCH ]; then
 fi
 
 
+echo "installing nodejs files..."
+if [ ! -e njs-files/0.10.26-$ARCH ]; then
+  tar -xzvf src/node-0.10.26-$ARCH.tar.gz -C tmp
+  mv tmp/node-v0.10.26-linux-$ARCH njs-files/0.10.26-$ARCH
+fi
+
+
 echo "installing php files..."
 ./setup_installphp 5.5.11 $ARCH
 ./setup_installphp 5.4.27 $ARCH
