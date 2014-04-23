@@ -27,4 +27,4 @@ else
 fi
 
 echo "Using architecture $ARCH (${MACHINE_NAME}, ${MACHINE_TYPE})"
-echo "Detected platform $PLAT ({$MACHINE_KERNEL})"
+echo "Detected platform $PLAT (${MACHINE_KERNEL})"
