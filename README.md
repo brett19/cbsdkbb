@@ -81,4 +81,16 @@ and couchnode on Windows, CentOS and Ubuntu.
 
 ### SmartOS
 
-Not yet ready for this
+1. Install Prerequisites
+  1. The Basics
+    ```bash
+    pkgin update
+    pkgin in git gcc47 sun-jre6-6.0.26 libtool-base autoconf automake libevent cmake
+    ```
+1. Setup SDK Folder
+  ```bash
+  sudo mkdir /cbsdkbb
+  git clone https://github.com/brett19/cbsdkbb.git /cbsdkbb
+  cd /cbsdkbb
+  ./setup
+  ```
