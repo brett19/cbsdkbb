@@ -45,11 +45,11 @@ echo "installing lcb files..."
 echo "installing nodejs files..."
 if [ ! -e njs-files/0.10.26-$ARCH ]; then
   tar -xzvf src/node-0.10.26-$ARCH.tar.gz -C tmp
-  mv tmp/node-v0.10.26-linux-$ARCH njs-files/0.10.26-$ARCH
+  mv tmp/node-v0.10.26-*-$ARCH njs-files/0.10.26-$ARCH
 fi
 if [ ! -e njs-files/0.11.9-$ARCH ]; then
   tar -xzvf src/node-0.11.9-$ARCH.tar.gz -C tmp
-  mv tmp/node-v0.11.9-linux-$ARCH njs-files/0.11.9-$ARCH
+  mv tmp/node-v0.11.9-*-$ARCH njs-files/0.11.9-$ARCH
 fi
 
 
