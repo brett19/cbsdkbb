@@ -85,7 +85,7 @@ and couchnode on Windows, CentOS and Ubuntu.
   1. The Basics
     ```bash
     pkgin update
-    pkgin in git gcc47 sun-jre6-6.0.26 libtool-base autoconf automake libevent cmake
+    pkgin in git gcc47 sun-jre6-6.0.26 libtool-base autoconf automake libevent gmake cmake
     ```
 1. Setup SDK Folder
   ```bash

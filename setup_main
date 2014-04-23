@@ -28,11 +28,11 @@ fi
 
 echo "downloading nodejs files..."
 if [ "$PLAT" == "sunos" ]; then
-  wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-sunos-$ARCH.tar.gz" -O src/node-0.10.26-x86.tar.gz
-  wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-sunos-$ARCH.tar.gz" -O src/node-0.11.9-x86.tar.gz
+  wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-sunos-$ARCH.tar.gz" -O src/node-0.10.26-$ARCH.tar.gz
+  wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-sunos-$ARCH.tar.gz" -O src/node-0.11.9-$ARCH.tar.gz
 else
-  wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-$ARCH.tar.gz" -O src/node-0.10.26-x86.tar.gz
-  wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-linux-$ARCH.tar.gz" -O src/node-0.11.9-x86.tar.gz
+  wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-$ARCH.tar.gz" -O src/node-0.10.26-$ARCH.tar.gz
+  wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-linux-$ARCH.tar.gz" -O src/node-0.11.9-$ARCH.tar.gz
 fi
 
 
