@@ -17,15 +17,17 @@ mkdir njs-files
 echo "downloading libcouchbase files..."
 wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0.tar.gz" -O src/lcb-2.3.0-src.tar.gz
 
-
 echo "downloading php files..."
-wget -nc "http://php.net/get/php-5.3.27.tar.bz2/from/this/mirror" -O src/php-src-5.3.27.tar.bz2
-wget -nc "http://php.net/get/php-5.4.27.tar.bz2/from/this/mirror" -O src/php-src-5.4.27.tar.bz2
-wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src/php-src-5.5.11.tar.bz2
-
+if [ "$PLAT" == "sunos" ]; then
+  echo "Not downloading PHP due to SmartOS"
+else
+  wget -nc "http://php.net/get/php-5.3.27.tar.bz2/from/this/mirror" -O src/php-src-5.3.27.tar.bz2
+  wget -nc "http://php.net/get/php-5.4.27.tar.bz2/from/this/mirror" -O src/php-src-5.4.27.tar.bz2
+  wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src/php-src-5.5.11.tar.bz2
+fi
 
 echo "downloading nodejs files..."
-if [ "$PLAT" == "sunos"]; then
+if [ "$PLAT" == "sunos" ]; then
   wget -nc "http://nodejs.org/dist/v0.10.26/node-v0.10.26-sunos-$ARCH.tar.gz" -O src/node-0.10.26-x86.tar.gz
   wget -nc "http://nodejs.org/dist/v0.11.9/node-v0.11.9-sunos-$ARCH.tar.gz" -O src/node-0.11.9-x86.tar.gz
 else
