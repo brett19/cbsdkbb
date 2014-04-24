@@ -15,6 +15,10 @@ if [ ! -e php-files/build/$PHPVER-nts-$ARCH ]; then
   ./setup_buildphp $PHPVER nts $ARCH
   cp src/php-phpunit.phar php-files/build/$PHPVER-nts-$ARCH/
 fi
+echo "Adding NTS Helpers"
+if [ ! -e php-files/build/$PHPVER-nts-$ARCH/phpunit.phar ]; then
+  cp src/php-phpunit.phar php-files/build/$PHPVER-nts-$ARCH/phpunit.phar
+fi
 
 echo "Installing ZTS"
 if [ ! -e php-files/src/$PHPVER-zts-$ARCH ]; then
@@ -24,5 +28,8 @@ fi
 echo "Building ZTS"
 if [ ! -e php-files/build/$PHPVER-zts-$ARCH ]; then
   ./setup_buildphp $PHPVER zts $ARCH
-  cp src/php-phpunit.phar php-files/build/$PHPVER-zts-$ARCH/
+fi
+echo "Adding ZTS Helpers"
+if [ ! -e php-files/build/$PHPVER-zts-$ARCH/phpunit.phar ]; then
+  cp src/php-phpunit.phar php-files/build/$PHPVER-zts-$ARCH/phpunit.phar
 fi

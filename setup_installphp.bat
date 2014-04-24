@@ -26,7 +26,10 @@ IF NOT EXIST php-files\src\%PHPVER%-nts-%MSVSVER%-%ARCH% (
 echo Building NTS
 IF NOT EXIST php-files\build\%PHPVER%-nts-%MSVSVER%-%ARCH% (
   CALL setup_buildphp.bat %PHPVER% nts %MSVSVER% %ARCH%
-  xcopy src\php-phpunit.phar php-files\build\%PHPVER%-nts-%MSVSVER%-%ARCH%\
+)
+echo Adding NTS Helpers
+IF NOT EXIST php-files\build\%PHPVER%-nts-%MSVSVER%-%ARCH%\phpunit.phar (
+  xcopy src\php-phpunit.phar php-files\build\%PHPVER%-nts-%MSVSVER%-%ARCH%\phpunit.phar
 )
 
 echo Installing ZTS
@@ -40,7 +43,10 @@ IF NOT EXIST php-files\src\%PHPVER%-zts-%MSVSVER%-%ARCH% (
 echo Building ZTS
 IF NOT EXIST php-files\build\%PHPVER%-zts-%MSVSVER%-%ARCH% (
   CALL setup_buildphp.bat %PHPVER% zts %MSVSVER% %ARCH%
-  xcopy src\php-phpunit.phar php-files\build\%PHPVER%-zts-%MSVSVER%-%ARCH%\
+)
+echo Adding ZTS Helpers
+IF NOT EXIST php-files\build\%PHPVER%-zts-%MSVSVER%-%ARCH%\phpunit.phar (
+  xcopy src\php-phpunit.phar php-files\build\%PHPVER%-zts-%MSVSVER%-%ARCH%\phpunit.phar
 )
 
 ENDLOCAL
