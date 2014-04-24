@@ -50,7 +50,7 @@ if "%ARCH%"=="x86" (
 )
 tools\wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src\php-src-5.5.11.tar.bz2
 tools\wget -nc "http://windows.php.net/downloads/php-sdk/php-sdk-binary-tools-20110915.zip" -O src\php-sdk.zip
-
+tools\wget -nc "https://phar.phpunit.de/phpunit.phar" -O src\php-phpunit.phar
 
 
 

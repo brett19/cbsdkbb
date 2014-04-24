@@ -13,6 +13,7 @@ fi
 echo "Building NTS"
 if [ ! -e php-files/build/$PHPVER-nts-$ARCH ]; then
   ./setup_buildphp $PHPVER nts $ARCH
+  cp src/php-phpunit.phar php-files/build/$PHPVER-nts-$ARCH/
 fi
 
 echo "Installing ZTS"
@@ -23,4 +24,5 @@ fi
 echo "Building ZTS"
 if [ ! -e php-files/build/$PHPVER-zts-$ARCH ]; then
   ./setup_buildphp $PHPVER zts $ARCH
+  cp src/php-phpunit.phar php-files/build/$PHPVER-zts-$ARCH/
 fi

@@ -24,6 +24,7 @@ else
   wget -nc "http://php.net/get/php-5.3.27.tar.bz2/from/this/mirror" -O src/php-src-5.3.27.tar.bz2
   wget -nc "http://php.net/get/php-5.4.27.tar.bz2/from/this/mirror" -O src/php-src-5.4.27.tar.bz2
   wget -nc "http://php.net/get/php-5.5.11.tar.bz2/from/this/mirror" -O src/php-src-5.5.11.tar.bz2
+  wget -nc "https://phar.phpunit.de/phpunit.phar" -O src/php-phpunit.phar
 fi
 
 echo "downloading nodejs files..."
