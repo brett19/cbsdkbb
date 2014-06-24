@@ -54,7 +54,7 @@ and couchnode on Windows, CentOS and Ubuntu.
     CentOS:
     sudo yum groupinstall 'Development Tools'
     sudo yum install git cmake
-    sudo yum install libevent-devel
+    sudo yum install libevent-devel openssl-devel
 
     Ubuntu:
     sudo apt-get install build-essential

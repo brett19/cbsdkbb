@@ -16,6 +16,7 @@ mkdir njs-files
 
 echo "downloading libcouchbase files..."
 wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0.tar.gz" -O src/lcb-2.3.0-src.tar.gz
+wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_dp1.tar.gz" -O src/lcb-2.4.0_dp1-src.tar.gz
 
 echo "downloading php files..."
 if [ "$PLAT" == "sunos" ]; then
@@ -42,7 +43,7 @@ fi
 
 echo "installing lcb files..."
 ./setup_installlcb 2.3.0 $ARCH
-
+./setup_installlcb 2.4.0_dp1 $ARCH
 
 echo "installing nodejs files..."
 if [ ! -e njs-files/0.10.26-$ARCH ]; then
