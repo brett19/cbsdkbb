@@ -17,18 +17,18 @@ if "%ARCH%"=="x86" (
   tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0_x86_vc10.zip" -O src\lcb-2.3.0-vc10-x86.zip
   tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0_x86_vc11.zip" -O src\lcb-2.3.0-vc11-x86.zip
 
-  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0-dp1_x86_vc9.zip" -O src\lcb-2.4.0_dp1-vc9-x86.zip
-  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0-dp1_x86_vc10.zip" -O src\lcb-2.4.0_dp1-vc10-x86.zip
-  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0-dp1_x86_vc11.zip" -O src\lcb-2.4.0_dp1-vc11-x86.zip
+  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_x86_vc9.zip" -O src\lcb-2.4.0-vc9-x86.zip
+  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_x86_vc10.zip" -O src\lcb-2.4.0-vc10-x86.zip
+  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_x86_vc11.zip" -O src\lcb-2.4.0-vc11-x86.zip
 )
 if "%ARCH%"=="x64" (
   tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0_amd64_vc9.zip" -O src\lcb-2.3.0-vc9-x64.zip
   tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0_amd64_vc10.zip" -O src\lcb-2.3.0-vc10-x64.zip
   tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.3.0_amd64_vc11.zip" -O src\lcb-2.3.0-vc11-x64.zip
 
-  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0-dp1_amd64_vc9.zip" -O src\lcb-2.4.0_dp1-vc9-x64.zip
-  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0-dp1_amd64_vc10.zip" -O src\lcb-2.4.0_dp1-vc10-x64.zip
-  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0-dp1_amd64_vc11.zip" -O src\lcb-2.4.0_dp1-vc11-x64.zip
+  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_amd64_vc9.zip" -O src\lcb-2.4.0-vc9-x64.zip
+  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_amd64_vc10.zip" -O src\lcb-2.4.0-vc10-x64.zip
+  tools\wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-2.4.0_amd64_vc11.zip" -O src\lcb-2.4.0-vc11-x64.zip
 )
 
 
@@ -80,17 +80,17 @@ if "%ARCH%"=="x86" (
     move /Y tmp\libcouchbase-2.3.0_x86_vc11 lcb-files\2.3.0-vc11-x86
   )
 
-  if not exist lcb-files\2.4.0_dp1-vc9-x86 (
-    tools\7za x -y -otmp\ src\lcb-2.4.0_dp1-vc9-x86.zip
-    move /Y tmp\libcouchbase-2.4.0-dp1-8-g4d6a266_x86_vc9 lcb-files\2.4.0_dp1-vc9-x86
+  if not exist lcb-files\2.4.0-vc9-x86 (
+    tools\7za x -y -otmp\ src\lcb-2.4.0-vc9-x86.zip
+    move /Y tmp\libcouchbase-2.4.0_x86_vc9 lcb-files\2.4.0-vc9-x86
   )
-  if not exist lcb-files\2.4.0_dp1-vc10-x86 (
-    tools\7za x -y -otmp\ src\lcb-2.4.0_dp1-vc10-x86.zip
-    move /Y tmp\libcouchbase-2.4.0-dp1-8-g4d6a266_x86_vc10 lcb-files\2.4.0_dp1-vc10-x86
+  if not exist lcb-files\2.4.0-vc10-x86 (
+    tools\7za x -y -otmp\ src\lcb-2.4.0-vc10-x86.zip
+    move /Y tmp\libcouchbase-2.4.0_x86_vc10 lcb-files\2.4.0-vc10-x86
   )
-  if not exist lcb-files\2.4.0_dp1-vc11-x86 (
-    tools\7za x -y -otmp\ src\lcb-2.4.0_dp1-vc11-x86.zip
-    move /Y tmp\libcouchbase-2.4.0-dp1-8-g4d6a266_x86_vc11 lcb-files\2.4.0_dp1-vc11-x86
+  if not exist lcb-files\2.4.0-vc11-x86 (
+    tools\7za x -y -otmp\ src\lcb-2.4.0-vc11-x86.zip
+    move /Y tmp\libcouchbase-2.4.0_x86_vc11 lcb-files\2.4.0-vc11-x86
   )
 )
 if "%ARCH%"=="x64" (
@@ -107,17 +107,17 @@ if "%ARCH%"=="x64" (
     move /Y tmp\libcouchbase-2.3.0_amd64_vc11 lcb-files\2.3.0-vc11-x64
   )
 
-  if not exist lcb-files\2.4.0_dp1-vc9-x64 (
-    tools\7za x -y -otmp\ src\lcb-2.4.0_dp1-vc9-x64.zip
-    move /Y tmp\libcouchbase-2.4.0-dp1-8-g4d6a266_amd64_vc9 lcb-files\2.4.0_dp1-vc9-x64
+  if not exist lcb-files\2.4.0-vc9-x64 (
+    tools\7za x -y -otmp\ src\lcb-2.4.0-vc9-x64.zip
+    move /Y tmp\libcouchbase-2.4.0_amd64_vc9 lcb-files\2.4.0-vc9-x64
   )
-  if not exist lcb-files\2.4.0_dp1-vc10-x64 (
-    tools\7za x -y -otmp\ src\lcb-2.4.0_dp1-vc10-x64.zip
-    move /Y tmp\libcouchbase-2.4.0-dp1-8-g4d6a266_amd64_vc10 lcb-files\2.4.0_dp1-vc10-x64
+  if not exist lcb-files\2.4.0-vc10-x64 (
+    tools\7za x -y -otmp\ src\lcb-2.4.0-vc10-x64.zip
+    move /Y tmp\libcouchbase-2.4.0_amd64_vc10 lcb-files\2.4.0-vc10-x64
   )
-  if not exist lcb-files\2.4.0_dp1-vc11-x64 (
-    tools\7za x -y -otmp\ src\lcb-2.4.0_dp1-vc11-x64.zip
-    move /Y tmp\libcouchbase-2.4.0-dp1-8-g4d6a266_amd64_vc11 lcb-files\2.4.0_dp1-vc11-x64
+  if not exist lcb-files\2.4.0-vc11-x64 (
+    tools\7za x -y -otmp\ src\lcb-2.4.0-vc11-x64.zip
+    move /Y tmp\libcouchbase-2.4.0_amd64_vc11 lcb-files\2.4.0-vc11-x64
   )
 )
 
