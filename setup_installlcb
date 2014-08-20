@@ -11,6 +11,6 @@ fi
 
 if [ ! -e lcb-files/build/$LCBVER-$ARCH ]; then
   cd lcb-files/src/$LCBVER-$ARCH
-  ./configure --disable-tests --disable-couchbasemock --prefix=$MYDIR/lcb-files/build/$LCBVER-$ARCH
+  ./configure --disable-tests --disable-couchbasemock --enable-ssl=no --prefix=$MYDIR/lcb-files/build/$LCBVER-$ARCH
   make && make install
 fi
