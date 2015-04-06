@@ -89,14 +89,20 @@ IF "%ARCH%"=="x86" (
     copy /Y src\node-0.10.38-x86.exe njs-files\0.10.38-x86\node.exe
   )
   IF NOT EXIST njs-files\0.10.38-x86\npm.cmd (
-    tools\7za x -y -onjs-files\0.10.38-x86\ src\npm-0.10.38.zip
+    tools\nvmw install 0.10.38
+    move /Y tools\nvmw\v0.10.38\node_modules njs-files\0.10.38-x86\node_modules
+    copy /Y tools\nvmw\v0.10.38\npm.cmd njs-files\0.10.38-x86\npm.cmd
+    rmdir /S /Q tools\nvmw\v0.10.38
   )
   IF NOT EXIST njs-files\0.12.2-x86 (
     mkdir njs-files\0.12.2-x86
     copy /Y src\node-0.12.2-x86.exe njs-files\0.12.2-x86\node.exe
   )
   IF NOT EXIST njs-files\0.12.2-x86\npm.cmd (
-    tools\7za x -y -onjs-files\0.12.2-x86\ src\npm-0.12.2.zip
+    tools\nvmw install 0.12.2
+    move /Y tools\nvmw\v0.12.2\node_modules njs-files\0.12.2-x86\node_modules
+    copy /Y tools\nvmw\v0.12.2\npm.cmd njs-files\0.12.2-x86\npm.cmd
+    rmdir /S /Q tools\nvmw\v0.12.2
   )
 )
 IF "%ARCH%"=="x64" (
@@ -105,14 +111,20 @@ IF "%ARCH%"=="x64" (
     copy /Y src\node-0.10.38-x64.exe njs-files\0.10.38-x64\node.exe
   )
   IF NOT EXIST njs-files\0.10.38-x64\npm.cmd (
-    tools\7za x -y -onjs-files\0.10.38-x64\ src\npm-0.10.38.zip
+    tools\nvmw install 0.10.38
+    move /Y tools\nvmw\v0.10.38\node_modules njs-files\0.10.38-x64\node_modules
+    copy /Y tools\nvmw\v0.10.38\npm.cmd njs-files\0.10.38-x64\npm.cmd
+    rmdir /S /Q tools\nvmw\v0.10.38
   )
   IF NOT EXIST njs-files\0.12.2-x64 (
     mkdir njs-files\0.12.2-x64
     copy /Y src\node-0.12.2-x64.exe njs-files\0.12.2-x64\node.exe
   )
   IF NOT EXIST njs-files\0.12.2-x64\npm.cmd (
-    tools\7za x -y -onjs-files\0.12.2-x64\ src\npm-0.12.2.zip
+    tools\nvmw install 0.12.2
+    move /Y tools\nvmw\v0.12.2\node_modules njs-files\0.12.2-x64\node_modules
+    copy /Y tools\nvmw\v0.12.2\npm.cmd njs-files\0.12.2-x64\npm.cmd
+    rmdir /S /Q tools\nvmw\v0.12.2
   )
 )
 
