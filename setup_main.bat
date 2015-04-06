@@ -87,11 +87,15 @@ IF "%ARCH%"=="x86" (
   IF NOT EXIST njs-files\0.10.38-x86 (
     mkdir njs-files\0.10.38-x86
     copy /Y src\node-0.10.38-x86.exe njs-files\0.10.38-x86\node.exe
+  )
+  IF NOT EXIST njs-files\0.10.38-x86\npm.cmd (
     tools\7za x -y -onjs-files\0.10.38-x86\ src\npm-0.10.38.zip
   )
   IF NOT EXIST njs-files\0.12.2-x86 (
     mkdir njs-files\0.12.2-x86
     copy /Y src\node-0.12.2-x86.exe njs-files\0.12.2-x86\node.exe
+  )
+  IF NOT EXIST njs-files\0.12.2-x86\npm.cmd (
     tools\7za x -y -onjs-files\0.12.2-x86\ src\npm-0.12.2.zip
   )
 )
@@ -99,11 +103,15 @@ IF "%ARCH%"=="x64" (
   IF NOT EXIST njs-files\0.10.38-x64 (
     mkdir njs-files\0.10.38-x64
     copy /Y src\node-0.10.38-x64.exe njs-files\0.10.38-x64\node.exe
+  )
+  IF NOT EXIST njs-files\0.10.38-x64\npm.cmd (
     tools\7za x -y -onjs-files\0.10.38-x64\ src\npm-0.10.38.zip
   )
   IF NOT EXIST njs-files\0.12.2-x64 (
     mkdir njs-files\0.12.2-x64
     copy /Y src\node-0.12.2-x64.exe njs-files\0.12.2-x64\node.exe
+  )
+  IF NOT EXIST njs-files\0.12.2-x64\npm.cmd (
     tools\7za x -y -onjs-files\0.12.2-x64\ src\npm-0.12.2.zip
   )
 )

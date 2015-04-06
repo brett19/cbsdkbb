@@ -3,8 +3,8 @@
     path = require('path'),
     wget = require('./wget');
 
-var NPM_PKG_JSON_URL = 'https://raw.github.com:443/joyent/node/v%s/deps/npm/package.json';
-var BASE_URL = 'http://nodejs.org:80/dist/npm/npm-%s.zip';
+var NPM_PKG_JSON_URL = 'https://raw.githubusercontent.com/joyent/node/v%s/deps/npm/package.json';
+var BASE_URL = 'http://nodejs.org/dist/npm/npm-%s.zip';
 
 var targetPath = process.argv[3];
 var nodeVersion = process.argv[2];
