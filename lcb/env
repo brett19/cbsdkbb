@@ -6,5 +6,6 @@ LCBVER=$1
 LCBTAG=$LCBVER-$ARCH
 LCBSRCDIR=$MYDIR/../lcb-files/src/$LCBTAG
 LCBDIR=$MYDIR/../lcb-files/build/$LCBTAG
+LCBDISTDIR=$MYDIR/../lcb-files/dist/$LCBTAG
 
-export CFLAGS="$CFLAGS -I$LCBDIR/include -L$LCBDIR/lib"
+export CFLAGS="$CFLAGS -I$LCBDISTDIR/include -L$LCBDISTDIR/lib"

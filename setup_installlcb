@@ -9,10 +9,11 @@ if [ ! -e lcb-files/src/$LCBVER-$ARCH ]; then
   mv tmp/libcouchbase-$LCBVER lcb-files/src/$LCBVER-$ARCH
 fi
 
-if [ ! -e lcb-files/build/$LCBVER-$ARCH/lib/libcouchbase.so ]; then
-  mkdir lcb-files/build/$LCBVER-$ARCH
+if [ ! -e lcb-files/dist/$LCBVER-$ARCH/lib/libcouchbase.so ]; then
+  mkdir -p lcb-files/build/$LCBVER-$ARCH
+  mkdir -p lcb-files/dist/$LCBVER-$ARCH
   cd lcb-files/build/$LCBVER-$ARCH
-  $MYDIR/lcb-files/src/$LCBVER-$ARCH/cmake/configure --disable-tests --disable-couchbasemock --disable-ssl
-  make
+  $MYDIR/lcb-files/src/$LCBVER-$ARCH/cmake/configure --disable-tests --disable-couchbasemock --disable-ssl --prefix=$MYDIR/lcb-files/dist/$LCBVER-$ARCH
+  make && make install
   cd $MYDIR
 fi
