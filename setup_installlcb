@@ -13,5 +13,6 @@ if [ ! -e lcb-files/build/$LCBVER-$ARCH/lib/libcouchbase.so ]; then
   mkdir lcb-files/build/$LCBVER-$ARCH
   cd lcb-files/build/$LCBVER-$ARCH
   $MYDIR/lcb-files/src/$LCBVER-$ARCH/cmake/configure --disable-tests --disable-couchbasemock --disable-ssl
+  make
   cd $MYDIR
 fi
