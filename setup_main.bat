@@ -145,7 +145,7 @@ if "%ARCH%"=="x86" (
   CALL setup_installphp.bat 5.4 5.4.39 vc9 x86
 )
 if "%ARCH%"=="x64" (
-  CALL setup_installphp.bat 5.6 5.6.7 vc11 x86
+  CALL setup_installphp.bat 5.6 5.6.7 vc11 x64
   CALL setup_installphp.bat 5.5 5.5.23 vc11 x64
 )
 
