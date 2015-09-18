@@ -18,7 +18,7 @@ if "%NJSMODE%"=="njs" (
 if "%NJSMODE%"=="iojs" (
   tools\wget -nc "http://iojs.org/dist/v%NJSVER%/win-%ARCH%/iojs.exe" -O src\node-%NJSVER%-%ARCH%.exe
 )
-if "%NJSMODE%"=="njs+" (
+if "%NJSMODE%"=="njsx" (
   tools\wget -nc "http://nodejs.org/dist/v%NJSVER%/win-%ARCH%/node.exe" -O src\node-%NJSVER%-%ARCH%.exe
 )
 
