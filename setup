@@ -1,5 +1,5 @@
 #!/bin/bash
 
 git pull
-git reset
+git reset --hard
 ./lsetup

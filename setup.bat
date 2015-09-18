@@ -1,3 +1,3 @@
 git pull
-git reset
+git reset --hard
 wsetup.bat
