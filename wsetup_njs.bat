@@ -21,7 +21,7 @@ IF NOT EXIST njs-files\%NJSVER%-%ARCH%\npm.cmd (
   SET NEEDINSTALL=1
 )
 
-IF "%NEEDINSTALL%"="1" (
+IF "%NEEDINSTALL%"=="1" (
   rmdir /S /Q njs-files\%NJSVER%-%ARCH%
 
   tools\nvmw\nvmw install %NVMVER%
