@@ -15,7 +15,9 @@ if "%NJSMODE%"=="iojs" (
 
 SET NEEDINSTALL=0
 IF NOT EXIST njs-files\%NJSVER%-%ARCH%\node.exe (
-  SET NEEDINSTALL=1
+  IF NOT EXIST njs-files\%NJSVER%-%ARCH%\node.cmd (
+    SET NEEDINSTALL=1
+  )
 )
 IF NOT EXIST njs-files\%NJSVER%-%ARCH%\npm.cmd (
   SET NEEDINSTALL=1
