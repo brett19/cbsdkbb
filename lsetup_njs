@@ -17,15 +17,15 @@ if [ "$NJSMODE" == "iojs" ]; then
 fi
 
 if [ "$PLAT" == "sunos" ]; then
-  wget -nc "$DLHOST/v$NJSVER/$FILEPREFIX-v$NJSVER-sunos-$ARCH.tar.gz" -O src/$FILEPREFIX-$NJSVER-$ARCH.tar.gz
+  wget -nc "$DLHOST/v$NJSVER/$FILEPREFIX-v$NJSVER-sunos-$ARCH.tar.gz" -O src/$FILEPREFIX-v$NJSVER-$ARCH.tar.gz
 else
-  wget -nc "$DLHOST/v$NJSVER/$FILEPREFIX-v$NJSVER-linux-$ARCH.tar.gz" -O src/$FILEPREFIX-$NJSVER-$ARCH.tar.gz
+  wget -nc "$DLHOST/v$NJSVER/$FILEPREFIX-v$NJSVER-linux-$ARCH.tar.gz" -O src/$FILEPREFIX-v$NJSVER-$ARCH.tar.gz
 fi
 
 
 echo "Installing NJS $1 $2 $3 $4"
 
 if [ ! -e njs-files/$NJSVER-$ARCH ]; then
-  tar -xzvf src/$FILEPREFIX-$NJSVER-$ARCH.tar.gz -C tmp
-  mv tmp/$FILEPREFIX-$NJSVER-*-$ARCH njs-files/$NJSVER-$ARCH
+  tar -xzvf src/$FILEPREFIX-v$NJSVER-$ARCH.tar.gz -C tmp
+  mv tmp/$FILEPREFIX-v$NJSVER-*-$ARCH njs-files/$NJSVER-$ARCH
 fi
