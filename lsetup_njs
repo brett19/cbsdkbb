@@ -7,6 +7,14 @@ ARCH=$3
 PLAT=$4
 
 
+if [ "$PLAT" == "sunos" ]; then
+  if [ "$NJSMODE" == "iojs" ]; then
+    echo "Skipping NJS $1 $2 $3 $4 due to SmartOS"
+    exit 0
+  fi
+fi
+
+
 echo "Downloading NJS $1 $2 $3 $4"
 
 DLHOST="http://nodejs.org/dist"
