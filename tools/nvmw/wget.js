@@ -33,9 +33,8 @@ function wget(uri, callback) {
             data = Buffer.concat([data, buf]);
 
             if (Date.now() - lastLog > 500) {
-                console.log('Download %d%, %s / %s, %s/s ...',
-                    parseInt(data.length / contentLength * 100, 10), bytes(data.length), bytes(contentLength),
-                    bytes(data.length / use * 1000));
+                console.log('Download %d%, %s / %s ...',
+                    parseInt(data.length / contentLength * 100, 10), bytes(data.length), bytes(contentLength));
                 lastLog = Date.now();
             }
         });
