@@ -1,0 +1,33 @@
+#!/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. common/env
+
+echo "Preparing"
+mkdir tmp
+mkdir src
+mkdir lcb-files
+mkdir lcb-files/build
+mkdir lcb-files/src
+mkdir php-files
+mkdir php-files/build
+mkdir php-files/deps
+mkdir php-files/src
+mkdir njs-files
+
+
+echo "Installing libcouchbase"
+./setup_lcb 2.4.9 $ARCH $PLAT
+
+echo "Installing Node.js"
+./setup_njs 0.10.38 $ARCH $PLAT
+./setup_njs 0.12.2 $ARCH $PLAT
+
+echo "Installing PHP"
+./setup_php 5.6.7 $ARCH $PLAT
+./setup_php 5.5.23 $ARCH $PLAT
+./setup_php 5.4.39 $ARCH $PLAT
+
+
+echo "Cleaning Up"
+rm -rf tmp

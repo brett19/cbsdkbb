@@ -1,2 +1,2 @@
 git pull
-setup_main.bat
+wsetup.bat

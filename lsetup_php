@@ -1,0 +1,56 @@
+#!/bin/bash
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PHPVER=$1
+ARCH=$2
+PLAT=$3
+
+if [ "$PLAT" == "sunos" ]; then
+  echo "Skipping PHP $1 $2 $3 due to SmartOS"
+else
+
+  echo "Downloading PHP $1 $2 $3"
+
+  wget -nc "http://php.net/get/php-$PHPVER.tar.bz2/from/this/mirror" -O src/php-src-$PHPVER.tar.bz2
+  wget -nc "https://phar.phpunit.de/phpunit.phar" -O src/php-phpunit.phar
+  wget -nc "http://phpdoc.org/phpDocumentor.phar" -O src/php-phpdoc.phar
+
+
+  echo "Installing PHP $1 $2 $3"
+
+  echo "Installing NTS"
+  if [ ! -e php-files/src/$PHPVER-nts-$ARCH ]; then
+    tar -xjvf src/php-src-$PHPVER.tar.bz2 -C tmp
+    mv tmp/php-$PHPVER php-files/src/$PHPVER-nts-$ARCH
+  fi
+  echo "Building NTS"
+  if [ ! -e php-files/build/$PHPVER-nts-$ARCH ]; then
+    ./setup_php_build $PHPVER nts $ARCH
+    cp src/php-phpunit.phar php-files/build/$PHPVER-nts-$ARCH/
+  fi
+  echo "Adding NTS Helpers"
+  if [ ! -e php-files/build/$PHPVER-nts-$ARCH/phpunit.phar ]; then
+    cp src/php-phpunit.phar php-files/build/$PHPVER-nts-$ARCH/phpunit.phar
+  fi
+  if [ ! -e php-files/build/$PHPVER-nts-$ARCH/phpdoc.phar ]; then
+    cp src/php-phpdoc.phar php-files/build/$PHPVER-nts-$ARCH/phpdoc.phar
+  fi
+
+  echo "Installing ZTS"
+  if [ ! -e php-files/src/$PHPVER-zts-$ARCH ]; then
+    tar -xjvf src/php-src-$PHPVER.tar.bz2 -C tmp
+    mv tmp/php-$PHPVER php-files/src/$PHPVER-zts-$ARCH
+  fi
+  echo "Building ZTS"
+  if [ ! -e php-files/build/$PHPVER-zts-$ARCH ]; then
+    ./setup_php_build $PHPVER zts $ARCH
+  fi
+  echo "Adding ZTS Helpers"
+  if [ ! -e php-files/build/$PHPVER-zts-$ARCH/phpunit.phar ]; then
+    cp src/php-phpunit.phar php-files/build/$PHPVER-zts-$ARCH/phpunit.phar
+  fi
+  if [ ! -e php-files/build/$PHPVER-zts-$ARCH/phpdoc.phar ]; then
+    cp src/php-phpdoc.phar php-files/build/$PHPVER-zts-$ARCH/phpdoc.phar
+  fi
+
+fi
