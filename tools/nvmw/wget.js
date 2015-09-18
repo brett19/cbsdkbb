@@ -23,28 +23,23 @@ function wget(uri, callback) {
             return;
         }
         var contentLength = parseInt(res.headers['content-length'], 10);
-        if (isNaN(contentLength)) {
-            console.log('Can\'t get \'content-length\'');
-            callback(null);
-            return;
-        }
         console.log('Content length is %s', bytes(contentLength));
 
-        var data = new Buffer(contentLength);
+        var data = new Buffer(0);
         var offset = 0;
 
         var start = Date.now();
         console.log(''); // New line for ESC_UP_CLL
         res.on('data', function (buf) {
-            buf.copy(data, offset);
-            offset += buf.length;
+            data = Buffer.concat([data, buf]);
+
             var use = Date.now() - start;
             if (use === 0) {
               use = 1;
             }
             console.log(ESC_UP_CLL + 'Download %d%, %s / %s, %s/s ...',
-                parseInt(offset / contentLength * 100, 10), bytes(offset), bytes(contentLength),
-                bytes(offset / use * 1000));
+                parseInt(data.length / contentLength * 100, 10), bytes(data.length), bytes(contentLength),
+                bytes(data.length / use * 1000));
         });
 
         res.on('end', function () {
