@@ -17,8 +17,11 @@ echo Installing libcouchbase
 CALL wsetup_lcb.bat 2.4.9 %ARCH%
 
 echo Installing Node.js
-CALL wsetup_njs.bat njs 0.10.38 %ARCH%
-CALL wsetup_njs.bat njs 0.12.2 %ARCH%
+CALL wsetup_njs.bat njs 0.10.40 %ARCH%
+CALL wsetup_njs.bat njs 0.12.7 %ARCH%
+CALL wsetup_njs.bat iojs 1.0.4 %ARCH%
+CALL wsetup_njs.bat iojs 1.8.4 %ARCH%
+CALL wsetup_njs.bat iojs 2.4.0 %ARCH%
 CALL wsetup_njs.bat iojs 3.0.0 %ARCH%
 CALL wsetup_njs.bat njs 4.0.0 %ARCH%
 
