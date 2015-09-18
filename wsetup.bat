@@ -30,3 +30,4 @@ echo Cleaning Up
 rmdir /q /s tmp
 
 ENDLOCAL
+EXIT 0
