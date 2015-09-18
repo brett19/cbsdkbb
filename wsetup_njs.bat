@@ -1,20 +1,29 @@
 SETLOCAL
 
-SET NJSVER=%1
-SET ARCH=%2
+SET NJSMODE=%1
+SET NJSVER=%2
+SET ARCH=%3
 
 
-echo Downloading NJS %1 %2...
+echo Downloading NJS %1% %2 %3
 
-if "%ARCH%"=="x86" (
-  tools\wget -nc "http://nodejs.org/dist/v%NJSVER%/node.exe" -O src\node-%NJSVER%-x86.exe
+if "%NJSMODE%"=="njs" (
+  if "%ARCH%"=="x86" (
+    tools\wget -nc "http://nodejs.org/dist/v%NJSVER%/node.exe" -O src\node-%NJSVER%-x86.exe
+  )
+  if "%ARCH%"=="x64" (
+    tools\wget -nc "http://nodejs.org/dist/v%NJSVER%/x64/node.exe" -O src\node-%NJSVER%-x64.exe
+  )
 )
-if "%ARCH%"=="x64" (
-  tools\wget -nc "http://nodejs.org/dist/v%NJSVER%/x64/node.exe" -O src\node-%NJSVER%-x64.exe
+if "%NJSMODE%"=="iojs" (
+  tools\wget -nc "http://iojs.org/dist/v%NJSVER%/win-%ARCH%/node.exe" -O src\node-%NJSVER%-%ARCH%.exe
+)
+if "%NJSMODE%"=="njs+" (
+  tools\wget -nc "http://nodejs.org/dist/v%NJSVER%/win-%ARCH%/node.exe" -O src\node-%NJSVER%-%ARCH%.exe
 )
 
 
-echo Installing NJS %1 %2...
+echo Installing NJS %1 %2 %3
 
 IF NOT EXIST njs-files\%NJSVER%-%ARCH% (
   mkdir njs-files\%NJSVER%-%ARCH%

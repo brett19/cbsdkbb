@@ -17,8 +17,10 @@ echo Installing libcouchbase
 CALL wsetup_lcb.bat 2.4.9 %ARCH%
 
 echo Installing Node.js
-CALL wsetup_njs.bat 0.10.38 %ARCH%
-CALL wsetup_njs.bat 0.12.2 %ARCH%
+CALL wsetup_njs.bat njs 0.10.38 %ARCH%
+CALL wsetup_njs.bat njs 0.12.2 %ARCH%
+CALL wsetup_njs.bat iojs 3.0.0 %ARCH%
+CALL wsetup_njs.bat njs+ 4.0.0 %ARCH%
 
 echo Installing PHP
 CALL wsetup_php.bat 5.4 5.4.39 vc9 %ARCH%

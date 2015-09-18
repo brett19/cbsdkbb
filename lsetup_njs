@@ -1,21 +1,27 @@
 #!/bin/bash
 
 MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-NJSVER=$1
-ARCH=$2
-PLAT=$3
+NJSMODE=$1
+NJSVER=$2
+ARCH=$3
+PLAT=$4
 
 
-echo "Downloading NJS $1 $2 $3
+echo "Downloading NJS $1 $2 $3 $4"
+
+DLHOST="http://nodejs.org/dist"
+if [ "$NJSMODE" == "iojs" ]; then
+  DLHOST="http://iojs.org/dist"
+fi
 
 if [ "$PLAT" == "sunos" ]; then
-  wget -nc "http://nodejs.org/dist/v$NJSVER/node-v$NJSVER-sunos-$ARCH.tar.gz" -O src/node-$NJSVER-$ARCH.tar.gz
+  wget -nc "$DLHOST/v$NJSVER/node-v$NJSVER-sunos-$ARCH.tar.gz" -O src/node-$NJSVER-$ARCH.tar.gz
 else
-  wget -nc "http://nodejs.org/dist/v$NJSVER/node-v$NJSVER-linux-$ARCH.tar.gz" -O src/node-$NJSVER-$ARCH.tar.gz
+  wget -nc "$DLHOST/v$NJSVER/node-v$NJSVER-linux-$ARCH.tar.gz" -O src/node-$NJSVER-$ARCH.tar.gz
 fi
 
 
-echo "Installing NJS $1 $2 $3"
+echo "Installing NJS $1 $2 $3 $4"
 
 if [ ! -e njs-files/$NJSVER-$ARCH ]; then
   tar -xzvf src/node-$NJSVER-$ARCH.tar.gz -C tmp
