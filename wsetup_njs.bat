@@ -25,6 +25,11 @@ if "%NJSMODE%"=="njsx" (
 
 echo Installing NJS %1 %2 %3
 
+SET NVMVER=v%NJSVER%
+if "%NJSMODE%"=="iojs" (
+  SET NVMVER=iojs-v%NJSVER%
+)
+
 IF NOT EXIST njs-files\%NJSVER%-%ARCH% (
   mkdir njs-files\%NJSVER%-%ARCH%
 )
@@ -32,10 +37,6 @@ IF NOT EXIST njs-files\%NJSVER%-%ARCH%\node.exe (
   copy /Y src\node-%NJSVER%-%ARCH%.exe njs-files\%NJSVER%-%ARCH%\node.exe
 )
 IF NOT EXIST njs-files\%NJSVER%-%ARCH%\npm.cmd (
-  SET NVMVER=v%NJSVER%
-  if "%NJSMODE%"=="iojs" (
-    SET NVMVER=iojs-v%NJSVER%
-  )
   tools\nvmw\nvmw install %NVMVER%
   move /Y tools\nvmw\%NVMVER%\node_modules njs-files\%NJSVER%-%ARCH%\node_modules
   copy /Y tools\nvmw\%NVMVER%\npm.cmd njs-files\%NJSVER%-%ARCH%\npm.cmd
