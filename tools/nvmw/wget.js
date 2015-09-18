@@ -1,7 +1,6 @@
 var url = require('url'),
     bytes = require('./bytes'),
-    fs = require('fs'),
-    ESC_UP_CLL = '\x1B[1A\x1B[K'; // Up + Clear-Line
+    fs = require('fs');
 
 function wget(uri, callback) {
     console.log('Download file from %s', uri);
@@ -28,22 +27,21 @@ function wget(uri, callback) {
         var data = new Buffer(0);
         var offset = 0;
 
-        var start = Date.now();
+        var lastLog = Date.now();
         console.log(''); // New line for ESC_UP_CLL
         res.on('data', function (buf) {
             data = Buffer.concat([data, buf]);
 
-            var use = Date.now() - start;
-            if (use === 0) {
-              use = 1;
+            if (Date.now() - lastLog > 500) {
+                console.log('Download %d%, %s / %s, %s/s ...',
+                    parseInt(data.length / contentLength * 100, 10), bytes(data.length), bytes(contentLength),
+                    bytes(data.length / use * 1000));
+                lastLog = Date.now();
             }
-            console.log(ESC_UP_CLL + 'Download %d%, %s / %s, %s/s ...',
-                parseInt(data.length / contentLength * 100, 10), bytes(data.length), bytes(contentLength),
-                bytes(data.length / use * 1000));
         });
 
         res.on('end', function () {
-            console.log('Donwload done');
+            console.log('Download done');
             callback(filename, data);
         });
     });
