@@ -14,6 +14,7 @@ and couchnode on Windows, CentOS and Ubuntu.
   1. Install Visual C++ Express 2008
   1. Install Visual C++ Express 2010
   1. Install Visual Studio Express 2012
+  1. Install Visual Studio Community 2015
   1. Install Windows SDK 7.0
     1. Make sure to fix the VCROOT error in SetEnv.
   1. Install Windows SDK 7.1

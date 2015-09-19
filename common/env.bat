@@ -18,6 +18,7 @@ ECHO PROGFILE: %PROGFILE%
 IF "%MSVSVER%"=="vc9" GOTO vc9
 IF "%MSVSVER%"=="vc10" GOTO vc10
 IF "%MSVSVER%"=="vc11" GOTO vc11
+IF "%MSVSVER%"=="vc14" GOTO vc14
 GOTO vcBad
 
 :vc9
@@ -40,6 +41,13 @@ GOTO vcBad
   ECHO Using Visual Studio 2012
   SET MSVSYEAR=2012
   CALL "%PROGFILE%\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" %MSVSARCH%
+  @ECHO ON
+  GOTO End
+
+:vc14
+  ECHO Using Visual Studio 2015
+  SET MSVSYEAR=2015
+  CALL "%PROGFILE%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %MSVSARCH%
   @ECHO ON
   GOTO End
 
