@@ -2,6 +2,8 @@ SET NJSVER=%1
 SET NJSTAG=%NJSVER%-%ARCH%
 SET NJSDIR=%~dp0..\njs-files\%NJSTAG%\
 
+%NJSDIR%/npm install -g node-gyp
+
 IF "%MSVSVER%"=="none" GOTO noVs
 GOTO specificVs
 
