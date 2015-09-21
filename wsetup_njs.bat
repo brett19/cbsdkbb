@@ -34,3 +34,5 @@ IF "%NEEDINSTALL%"=="1" (
   rmdir /S /Q tools\nvmw\%NVMPATH%
   rmdir /S /Q tools\nvmw\iojs
 )
+
+rmdir /S /Q "%UserProfile%\.node-gyp"
