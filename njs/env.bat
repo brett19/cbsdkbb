@@ -2,9 +2,10 @@ SET NJSVER=%1
 SET NJSTAG=%NJSVER%-%ARCH%
 SET NJSDIR=%~dp0..\njs-files\%NJSTAG%\
 
+SET PATH=%NJSDIR%;%PATH%
+
 IF "%MSVSVER%"=="none" GOTO noVs
 GOTO specificVs
-
 
 :specificVs
 SET GYP_MSVS_VERSION=%MSVSYEAR%
