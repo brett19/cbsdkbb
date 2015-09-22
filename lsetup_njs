@@ -35,7 +35,11 @@ echo "Installing NJS $1 $2 $3 $4"
 
 if [ ! -e njs-files/$NJSVER-$ARCH ]; then
   tar -xzvf src/$FILEPREFIX-v$NJSVER-$ARCH.tar.gz -C tmp
-  mv tmp/$FILEPREFIX-v$NJSVER-*-$ARCH njs-files/$NJSVER-$ARCH
+  if [ ! -e tmp/$FILEPREFIX-v$NJSVER-*-ia32 ]; then
+    mv tmp/$FILEPREFIX-v$NJSVER-*-x86 njs-files/$NJSVER-$ARCH
+  else
+    mv tmp/$FILEPREFIX-v$NJSVER-*-ia32 njs-files/$NJSVER-$ARCH
+  fi
 fi
 
 rm -rf $HOME/.node-gyp
