@@ -6,11 +6,16 @@ SET ARCH=%3
 
 echo Installing NJS %1 %2 %3
 
+SET NVMARCH=""
+if "%ARCH%"=="x86" (
+  SET NVMARCH="-x32"
+)
+
 SET NVMVER=v%NJSVER%
-SET NVMPATH=v%NJSVER%
+SET NVMPATH=v%NJSVER%%NVMARCH%
 if "%NJSMODE%"=="iojs" (
   SET NVMVER=iojs-v%NJSVER%
-  SET NVMPATH=iojs\v%NJSVER%
+  SET NVMPATH=iojs\v%NJSVER%%NVMARCH%
 )
 
 SET NEEDINSTALL=0
@@ -25,6 +30,9 @@ IF NOT EXIST njs-files\%NJSVER%-%ARCH%\npm.cmd (
 
 IF "%NEEDINSTALL%"=="1" (
   rmdir /S /Q njs-files\%NJSVER%-%ARCH%
+
+  rmdir /S /Q tools\nvmw\v*
+  rmdir /S /Q tools\nvmw\iojs
 
   tools\nvmw\nvmw install %NVMVER% %ARCH%
   del /Q tools\nvmw\%NVMPATH%\npm.zip
