@@ -15,23 +15,13 @@ mkdir php-files/deps
 mkdir php-files/src
 mkdir njs-files
 
-
-echo "Installing libcouchbase"
-./lsetup_lcb 2.4.9 $ARCH $PLAT
-
-echo "Installing Node.js"
-./lsetup_njs njs 0.10.40 $ARCH $PLAT
-./lsetup_njs njs 0.12.7 $ARCH $PLAT
-./lsetup_njs iojs 1.0.4 $ARCH $PLAT
-./lsetup_njs iojs 1.8.4 $ARCH $PLAT
-./lsetup_njs iojs 2.4.0 $ARCH $PLAT
-./lsetup_njs iojs 3.0.0 $ARCH $PLAT
-./lsetup_njs njs 4.0.0 $ARCH $PLAT
-
-echo "Installing PHP"
-./lsetup_php 5.6.7 $ARCH $PLAT
-./lsetup_php 5.5.23 $ARCH $PLAT
-./lsetup_php 5.4.39 $ARCH $PLAT
+if [ "$MACHINE_ARCH" == "x64" ]; then
+  ./lsetup_all x64 $PLAT
+  ./lsetup_all x86 $PLAT
+fi
+if [ "$MACHINE_ARCH" == "x86" ]; then
+  ./lsetup_all x86 $PLAT
+fi
 
 
 echo "Cleaning Up"

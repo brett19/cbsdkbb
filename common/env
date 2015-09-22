@@ -1,20 +1,22 @@
 #!/bin/bash
 
+ARCH=$1
+
 BBREV=`git rev-parse HEAD`
 echo "Build bot at revision $BBREV."
 
 MACHINE_NAME=`uname -n`
 if [[ ${MACHINE_NAME} == *x86* ]]; then
-  ARCH='x86'
+  MACHINE_ARCH='x86'
 else
   if [[ ${MACHINE_NAME} == *x64* ]]; then
-    ARCH='x64'
+    MACHINE_ARCH='x64'
   else
     MACHINE_TYPE=`uname -m`
     if [ ${MACHINE_TYPE} == 'x86_64' ]; then
-      ARCH='x64'
+      MACHINE_ARCH='x64'
     else
-      ARCH='x86'
+      MACHINE_ARCH='x86'
     fi
   fi
 fi
@@ -26,5 +28,5 @@ else
   PLAT='other'
 fi
 
-echo "Using architecture $ARCH (${MACHINE_NAME}, ${MACHINE_TYPE})"
+echo "Using architecture $ARCH (${MACHINE_NAME}, ${MACHINE_TYPE}, ${MACHINE_ARCH})"
 echo "Detected platform $PLAT (${MACHINE_KERNEL})"

@@ -48,3 +48,5 @@ if "%ARCH%"=="x64" (
     move /Y tmp\libcouchbase-%LCBVER%_amd64_vc11 lcb-files\%LCBVER%-vc11-x64
   )
 )
+
+ENDLOCAL

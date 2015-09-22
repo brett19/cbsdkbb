@@ -26,7 +26,7 @@ IF NOT EXIST njs-files\%NJSVER%-%ARCH%\npm.cmd (
 IF "%NEEDINSTALL%"=="1" (
   rmdir /S /Q njs-files\%NJSVER%-%ARCH%
 
-  tools\nvmw\nvmw install %NVMVER%
+  tools\nvmw\nvmw install %NVMVER% %ARCH%
   del /Q tools\nvmw\%NVMPATH%\npm.zip
 
   move /Y tools\nvmw\%NVMPATH% njs-files\%NJSVER%-%ARCH%
@@ -36,3 +36,5 @@ IF "%NEEDINSTALL%"=="1" (
 )
 
 rmdir /S /Q "%UserProfile%\.node-gyp"
+
+ENDLOCAL
