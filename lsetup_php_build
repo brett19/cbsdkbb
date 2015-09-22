@@ -18,9 +18,4 @@ if [ "$PHPTS"=='zts' ]; then
   ZTSARG='--enable-maintainer-zts'
 fi
 
-ARCHARG=''
-if [ "$ARCH"=="x86" ]; then
-  ARCHARG='--host=i686-linux-gnu'
-fi
-
-./configure --disable-all --enable-cli --prefix=$MYDIR/php-files/build/$PHPTAG $ZTSARG $ARCHARG && make && make install
+./configure --disable-all --enable-cli --prefix=$MYDIR/php-files/build/$PHPTAG $ZTSARG && make && make install
