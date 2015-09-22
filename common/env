@@ -28,5 +28,13 @@ else
   PLAT='other'
 fi
 
+if [ ${ARCH} == 'x86' ]; then
+  CFLAGS=”-m32″
+  CXXFLAGS=”-m32″
+else
+  CFLAGS=”″
+  CXXFLAGS=”″
+fi
+
 echo "Using architecture $ARCH (${MACHINE_NAME}, ${MACHINE_TYPE}, ${MACHINE_ARCH})"
 echo "Detected platform $PLAT (${MACHINE_KERNEL})"

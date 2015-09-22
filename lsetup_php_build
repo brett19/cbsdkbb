@@ -9,7 +9,7 @@ echo "Building PHP $1 $2 $3"
 
 PHPTAG=$PHPVER-$PHPTS-$ARCH
 
-. common/env
+. common/env $ARCH
 
 cd php-files/src/$PHPTAG
 

@@ -10,7 +10,7 @@ echo Building PHP %1 %2 %3 %4
 
 SET PHPTAG=%PHPVER%-%PHPTS%-%MSVSVER%-%ARCH%
 
-CALL common\env.bat %MSVSVER%
+CALL common\env.bat %MSVSVER% %ARCH%
 
 CALL php-files\sdk\bin\phpsdk_setvars.bat
 @ECHO ON
