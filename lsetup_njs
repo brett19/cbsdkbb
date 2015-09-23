@@ -35,10 +35,14 @@ echo "Installing NJS $1 $2 $3 $4"
 
 if [ ! -e njs-files/$NJSVER-$ARCH ]; then
   tar -xzvf src/$FILEPREFIX-v$NJSVER-$ARCH.tar.gz -C tmp
-  if [ ! -e tmp/$FILEPREFIX-v$NJSVER-*-ia32 ]; then
-    mv tmp/$FILEPREFIX-v$NJSVER-*-x86 njs-files/$NJSVER-$ARCH
+  if [ "$ARCH" == "x86" ]; then
+    if [ ! -e tmp/$FILEPREFIX-v$NJSVER-*-ia32 ]; then
+      mv tmp/$FILEPREFIX-v$NJSVER-*-$ARCH njs-files/$NJSVER-$ARCH
+    else
+      mv tmp/$FILEPREFIX-v$NJSVER-*-ia32 njs-files/$NJSVER-$ARCH
+    fi
   else
-    mv tmp/$FILEPREFIX-v$NJSVER-*-ia32 njs-files/$NJSVER-$ARCH
+    mv tmp/$FILEPREFIX-v$NJSVER-*-$ARCH njs-files/$NJSVER-$ARCH
   fi
 fi
 
