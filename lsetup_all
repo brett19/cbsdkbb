@@ -6,6 +6,7 @@ PLAT=$2
 
 echo "Installing libcouchbase $ARCH"
 ./lsetup_lcb 2.4.9 $ARCH $PLAT
+./lsetup_lcb 2.5.3 $ARCH $PLAT
 
 echo "Installing Node.js $ARCH"
 ./lsetup_njs njs 0.10.40 $ARCH $PLAT

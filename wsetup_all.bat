@@ -4,6 +4,7 @@ SET ARCH=%1
 
 echo Installing libcouchbase %ARCH%
 CALL wsetup_lcb.bat 2.4.9 %ARCH%
+CALL wsetup_lcb.bat 2.5.3 %ARCH%
 
 echo Installing Node.js %ARCH%
 CALL wsetup_njs.bat njs 0.10.40 %ARCH%
