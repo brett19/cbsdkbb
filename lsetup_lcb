@@ -12,6 +12,8 @@ wget -nc "http://packages.couchbase.com/clients/c/libcouchbase-$LCBVER.tar.gz" -
 
 echo "Installing LCB $1 $2 $3"
 
+. common/env $ARCH
+
 if [ ! -e lcb-files/src/$LCBVER-$ARCH ]; then
   tar -xzvf src/lcb-$LCBVER-src.tar.gz -C tmp
   mv tmp/libcouchbase-$LCBVER lcb-files/src/$LCBVER-$ARCH
