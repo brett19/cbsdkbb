@@ -56,11 +56,13 @@ and couchnode on Windows, CentOS and Ubuntu.
     sudo yum groupinstall 'Development Tools'
     sudo yum install git cmake
     sudo yum install libevent-devel openssl-devel
+    sudo yum install glibc-devel.i686 glibc-devel libstdc++-devel.i686
 
     Ubuntu:
     sudo apt-get install build-essential
     sudo apt-get install git autoconf cmake
     sudo apt-get install libevent-dev
+    sudo apt-get install g++-multilib
     ```
 
   1. Java 1.7 (Ubuntu Only)
